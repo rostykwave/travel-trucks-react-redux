@@ -1,0 +1,249 @@
+{
+  "total": 5,
+  "items": [
+    {
+      "id": "7",
+      "name": "El Monte Class A Family Sleeper [AF]",
+      "price": 15000,
+      "rating": 4.4,
+      "location": "Ukraine, Sumy",
+      "description": "Indulge in the ultimate road trip experience with the El Monte Class A Family Sleeper [AF]. This fully integrated motorhome is a haven on wheels, offering unmatched luxury and comfort for families or groups of six. From its stylish design to the array of premium amenities, the El Monte Class A Family Sleeper [AF] redefines the standards of elegance on the open road.",
+      "form": "fullyIntegrated",
+      "length": "9.44m",
+      "width": "2.2m",
+      "height": "4m",
+      "tank": "302l",
+      "consumption": "33l/100km",
+      "transmission": "automatic",
+      "engine": "diesel",
+      "AC": true,
+      "bathroom": true,
+      "kitchen": true,
+      "TV": true,
+      "radio": true,
+      "refrigerator": true,
+      "microwave": true,
+      "gas": true,
+      "water": true,
+      "gallery": [
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/7-1.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/7-1.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/7-2.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/7-2.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/7-3.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/7-3.webp"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer_name": "Alice",
+          "reviewer_rating": 5,
+          "comment": "The El Monte Class A Family Sleeper [AF] provided an opulent experience for our family. The fully integrated features, spacious interiors, and top-notch amenities made our journey unforgettable. Highly recommended for those seeking a luxurious RV adventure."
+        },
+        {
+          "reviewer_name": "Bob",
+          "reviewer_rating": 3,
+          "comment": "While the El Monte Class A Family Sleeper [AF] offered luxury, we faced some minor issues during our trip. The gas supply seemed insufficient, and a few amenities had issues. Overall, a good experience, but improvements are needed for the price."
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Road Bear C 23-25",
+      "price": 10000,
+      "rating": 4.5,
+      "location": "Ukraine, Kyiv",
+      "description": "Embadventures, promising comfort, style, and the freedom to explore at your own pace.",
+      "form": "alcove",
+      "length": "7.3m",
+      "width": "2.65m",
+      "height": "3.65m",
+      "tank": "208l",
+      "consumption": "30l/100km",
+      "transmission": "automatic",
+      "engine": "diesel",
+      "AC": true,
+      "bathroom": true,
+      "kitchen": false,
+      "TV": true,
+      "radio": true,
+      "refrigerator": false,
+      "microwave": true,
+      "gas": false,
+      "water": true,
+      "gallery": [
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/1-1.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/1-1.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/1-2.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/1-2.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/1-3.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/1-3.webp"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer_name": "Alice",
+          "reviewer_rating": 5,
+          "comment": "Exceptional RV! The Road Bear C 23-25 provided a comfortable and enjoyable journey for my family. The amenities were fantastic, and the space was well-utilized. Highly recommended!"
+        },
+        {
+          "reviewer_name": "Bob",
+          "reviewer_rating": 4,
+          "comment": "Great RV for a road trip. Spacious and well-equipped. Only minor issues with the bathroom setup, but overall a wonderful experience."
+        }
+      ]
+    },
+    {
+      "id": "fixture-no-reviews",
+      "name": "Cruise America C-21",
+      "price": 8000,
+      "rating": 4.3,
+      "location": "Ukraine, Poltava",
+      "description": "Discover the charm of the open road with the Cruise America C-21, a compact and versatile alcove-style motorhome. Ideal for couples or small families, this motorhome combines practicality with comfort, offering an efficient and enjoyable travel experience. The Cruise America C-21 is designed to provide you with the freedom to explore while ensuring a cozy retreat at the end of the day.",
+      "form": "alcove",
+      "length": "6.4m",
+      "width": "2.34m",
+      "height": "3.72m",
+      "tank": "151l",
+      "consumption": "21l/100km",
+      "transmission": "automatic",
+      "engine": "petrol",
+      "AC": true,
+      "bathroom": true,
+      "kitchen": true,
+      "TV": false,
+      "radio": true,
+      "refrigerator": true,
+      "microwave": true,
+      "gas": true,
+      "water": true,
+      "gallery": [
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/2-1.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/2-1.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/2-2.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/2-2.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/2-3.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/2-3.webp"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "id": "5",
+      "name": "El Monte Class C Small [C]",
+      "price": 11000,
+      "rating": 4.4,
+      "location": "Ukraine, Odesa",
+      "description": "Experience the perfect blend of compact design and functionality with the El Monte Class C Small [C]. Tailored for small families or groups of four, this motorhome provides a cozy and efficient way to explore the open roads and create lasting memories. Whether you're planning a weekend getaway or an extended road trip, the El Monte Class C Small [C] offers a hassle-free and comfortable travel experience.",
+      "form": "alcove",
+      "length": "6.4m",
+      "width": "2.54m",
+      "height": "3.4m",
+      "tank": "208l",
+      "consumption": "25l/100km",
+      "transmission": "manual",
+      "engine": "diesel",
+      "AC": true,
+      "bathroom": true,
+      "kitchen": true,
+      "TV": true,
+      "radio": true,
+      "refrigerator": true,
+      "microwave": true,
+      "gas": true,
+      "water": true,
+      "gallery": [
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/5-1.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/5-1.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/5-2.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/5-2.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/5-3.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/5-3.webp"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer_name": "Alice",
+          "reviewer_rating": 5,
+          "comment": "The El Monte Class C Small [C] was the perfect choice for our family of four. Compact yet surprisingly spacious, it provided all the amenities we needed. The kitchen facilities were excellent, and the overall experience was delightful."
+        },
+        {
+          "reviewer_name": "Bob",
+          "reviewer_rating": 3,
+          "comment": "A decent motorhome for a small family. The El Monte Class C Small [C] offered convenience, but the bed setup was a bit cramped. Good for short trips but might need more space for an extended journey."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Mesa",
+      "price": 7500,
+      "rating": 4.4,
+      "location": "Ukraine, Kyiv",
+      "description": "Experience the freedom of the open road with the Mesa panel truck, designed for solo adventurers or couples seeking a nimble and compact vehicle for their travels. With a sleek design and essential amenities, the Mesa offers a hassle-free journey, allowing you to explore new horizons with ease and style.",
+      "form": "panelTruck",
+      "length": "6.04m",
+      "width": "1.06m",
+      "height": "2.3m",
+      "tank": "94l",
+      "consumption": "12.4l/100km",
+      "transmission": "manual",
+      "engine": "hybrid",
+      "AC": true,
+      "bathroom": false,
+      "kitchen": true,
+      "TV": false,
+      "radio": true,
+      "refrigerator": false,
+      "microwave": false,
+      "gas": false,
+      "water": true,
+      "gallery": [
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/10-1.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/10-1.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/10-2.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/10-2.webp"
+        },
+        {
+          "thumb": "https://ftp.goit.study/img/campers-test-task/10-3.webp",
+          "original": "https://ftp.goit.study/img/campers-test-task/10-3.webp"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer_name": "Alice",
+          "reviewer_rating": 5,
+          "comment": "The Mesa panel truck is perfect for solo travelers. Its compact size makes it easy to navigate, and the basic amenities provided a comfortable experience. Highly recommended for those looking for simplicity on their journeys."
+        },
+        {
+          "reviewer_name": "Bob",
+          "reviewer_rating": 3,
+          "comment": "The Mesa is a decent option for solo travel. While the amenities are basic, it offers a hassle-free experience for short trips. The compact design is an advantage for city travel."
+        }
+      ]
+    }
+  ]
+}
