@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-24);
-  width: 641px;
+  width: var(--layout-form-width);
   padding: var(--space-44);
   border: 1px solid var(--color-gray-light);
   border-radius: var(--radius-card);
@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
-  width: 527px;
+  width: var(--layout-form-field-width);
 }
 
 .subtitle {
@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-14);
-  width: 527px;
+  width: var(--layout-form-field-width);
 }
 
 .field {

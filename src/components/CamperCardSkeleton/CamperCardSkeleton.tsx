@@ -5,7 +5,11 @@ import styles from '@/components/CamperCardSkeleton/CamperCardSkeleton.module.cs
 function CamperCardSkeleton() {
   return (
     <div className={styles.card} aria-hidden="true">
-      <Skeleton className={styles.picture} height="240px" />
+      <Skeleton
+        className={styles.picture}
+        width="var(--layout-card-image-width)"
+        height="var(--layout-card-image-height)"
+      />
       <div className={styles.info}>
         <div className={styles.title}>
           <Skeleton width="60%" height="32px" />

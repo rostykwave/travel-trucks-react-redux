@@ -8,8 +8,8 @@
 
 .picture {
   flex-shrink: 0;
-  width: 219px;
-  height: 240px;
+  width: var(--layout-card-image-width);
+  height: var(--layout-card-image-height);
   border-radius: var(--radius-card);
 }
 
@@ -18,6 +18,7 @@
   flex: 1;
   flex-direction: column;
   gap: var(--space-24);
+  min-width: 0;
 }
 
 .title {

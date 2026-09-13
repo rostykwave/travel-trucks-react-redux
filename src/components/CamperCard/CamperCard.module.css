@@ -8,8 +8,8 @@
 
 .picture {
   flex-shrink: 0;
-  width: 219px;
-  height: 240px;
+  width: var(--layout-card-image-width);
+  height: var(--layout-card-image-height);
   object-fit: cover;
   border-radius: var(--radius-card);
 }

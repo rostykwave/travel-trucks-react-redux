@@ -1,5 +1,5 @@
 .spinner {
-  --loader-size: 40px;
+  --loader-size: var(--space-40);
 
   width: var(--loader-size);
   height: var(--loader-size);

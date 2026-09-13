@@ -89,6 +89,17 @@
 
   /* Documented block sizes from docs/02-design-tokens.md §5 — not arbitrary. */
   --layout-hero-height: 864px;
+
+  /* Repeated element sizes straight from Figma — see docs/02-design-tokens.md §5. */
+  --layout-logo-width: 136px;
+  --layout-logo-height: 16px;
+  --layout-card-image-width: 219px;
+  --layout-card-image-height: 240px;
+  --layout-gallery-width: 638px;
+  --layout-gallery-main-height: 505px;
+  --layout-gallery-thumb-height: 144px;
+  --layout-form-width: 641px;
+  --layout-form-field-width: 527px;
 }
 
 /* Catalog page grid — docs/02-design-tokens.md §5 */

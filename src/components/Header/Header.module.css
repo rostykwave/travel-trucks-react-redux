@@ -9,8 +9,8 @@
 
 .logo {
   display: block;
-  width: 136px;
-  height: 16px;
+  width: var(--layout-logo-width);
+  height: var(--layout-logo-height);
 }
 
 .nav {

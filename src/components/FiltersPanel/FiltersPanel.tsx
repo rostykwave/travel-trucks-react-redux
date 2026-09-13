@@ -1,3 +1,5 @@
+import type { FormEvent } from 'react'
+
 import Button from '@/components/Button/Button'
 import Icon from '@/components/Icon/Icon'
 import styles from '@/components/FiltersPanel/FiltersPanel.module.css'
@@ -6,16 +8,47 @@ import {
   EQUIPMENT_LABELS,
   FORM_LABELS,
 } from '@/constants/campers'
+import { isCamperForm } from '@/features/filters/urlFilters'
+import type { CampersFilters } from '@/features/filters/urlFilters'
+import { useCampersFilters } from '@/features/filters/useCampersFilters'
 import { EQUIPMENT_KEYS } from '@/types/camper'
 
 /**
- * Markup only — wiring to URL state and the store lands in stage 3 (commit 28).
  * Field set follows the assignment (location text, single body type, multiple
  * equipment), not the mockup's Engine/Transmission radios — see ADR-008.
+ * The form is uncontrolled, keyed on the current filters so it remounts (and
+ * re-syncs its defaultValue/defaultChecked) whenever the URL changes from
+ * outside — e.g. Clear filters, or a filtered link pasted directly.
  */
 function FiltersPanel() {
+  const { filters, setFilters } = useCampersFilters()
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const next: CampersFilters = {}
+
+    const location = data.get('location')
+    if (typeof location === 'string' && location.trim()) {
+      next.location = location.trim()
+    }
+
+    const form = data.get('form')
+    if (typeof form === 'string' && isCamperForm(form)) next.form = form
+
+    for (const key of EQUIPMENT_KEYS) {
+      if (data.get(key) === 'on') next[key] = true
+    }
+
+    setFilters(next)
+  }
+
   return (
-    <form className={styles.panel}>
+    <form
+      key={JSON.stringify(filters)}
+      className={styles.panel}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.info}>
         <div className={styles.field}>
           <label htmlFor="location" className={`text-body ${styles.label}`}>
@@ -28,6 +61,7 @@ function FiltersPanel() {
               name="location"
               type="text"
               placeholder="Kyiv, Ukraine"
+              defaultValue={filters.location ?? ''}
               className="text-body"
               style={{
                 width: '100%',
@@ -53,6 +87,7 @@ function FiltersPanel() {
                     type="radio"
                     name="form"
                     value={form}
+                    defaultChecked={filters.form === form}
                     className={styles.radio}
                   />
                   {FORM_LABELS[form]}
@@ -71,7 +106,7 @@ function FiltersPanel() {
                   <input
                     type="checkbox"
                     name={key}
-                    value={key}
+                    defaultChecked={Boolean(filters[key])}
                     className={styles.checkbox}
                   />
                   {EQUIPMENT_LABELS[key]}
@@ -86,7 +121,12 @@ function FiltersPanel() {
         <Button type="submit" variant="primary">
           Search
         </Button>
-        <Button type="reset" variant="outline" className={styles.clearButton}>
+        <Button
+          type="button"
+          variant="outline"
+          className={styles.clearButton}
+          onClick={() => setFilters({})}
+        >
           <Icon name="close" size={24} />
           Clear filters
         </Button>

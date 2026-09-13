@@ -41,7 +41,7 @@
 }
 
 .avatarLetter {
-  font-size: 24px;
+  font-size: var(--text-h2-size);
   font-weight: 600;
   color: var(--color-brand);
 }
