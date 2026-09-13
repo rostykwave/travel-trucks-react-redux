@@ -85,5 +85,7 @@
 
   /* Layout */
   --container-max-width: 1440px;
-  --content-max-width: 1312px;
+
+  /* Documented block sizes from docs/02-design-tokens.md §5 — not arbitrary. */
+  --layout-hero-height: 864px;
 }

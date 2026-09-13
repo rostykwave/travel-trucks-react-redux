@@ -1,0 +1,10 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--color-rating);
+}
+
+.text {
+  color: var(--color-main);
+}

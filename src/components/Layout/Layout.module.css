@@ -11,7 +11,5 @@
 }
 
 .content {
-  max-width: var(--content-max-width);
-  margin-inline: auto;
   padding-inline: var(--space-64);
 }
