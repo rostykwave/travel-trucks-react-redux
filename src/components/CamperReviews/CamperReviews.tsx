@@ -25,8 +25,7 @@ function StarRow({ rating }: { rating: number }) {
 
 function CamperReviews({ reviews }: CamperReviewsProps) {
   return (
-    <section className={styles.section}>
-      <h2 className="text-h2">Reviews</h2>
+    <div className={styles.section}>
       {reviews.length === 0 ? (
         <p className={`text-body ${styles.empty}`}>No reviews yet.</p>
       ) : (
@@ -51,7 +50,7 @@ function CamperReviews({ reviews }: CamperReviewsProps) {
           ))}
         </div>
       )}
-    </section>
+    </div>
   )
 }
 

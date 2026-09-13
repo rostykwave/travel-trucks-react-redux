@@ -1,3 +1,4 @@
+import BookingForm from '@/components/BookingForm/BookingForm'
 import CamperGallery from '@/components/CamperGallery/CamperGallery'
 import CamperReviews from '@/components/CamperReviews/CamperReviews'
 import Location from '@/components/Location/Location'
@@ -44,7 +45,13 @@ function CamperDetailsPage() {
           <VehicleDetailsCard camper={camper} />
         </div>
       </div>
-      <CamperReviews reviews={camper.reviews} />
+      <div className={styles.reviewsSection}>
+        <h2 className="text-h2">Reviews</h2>
+        <div className={styles.reviewsRow}>
+          <CamperReviews reviews={camper.reviews} />
+          <BookingForm />
+        </div>
+      </div>
     </div>
   )
 }
