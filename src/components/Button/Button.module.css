@@ -1,0 +1,46 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-10);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-base);
+  font-size: var(--text-button-size);
+  font-weight: var(--text-button-weight);
+  line-height: var(--text-button-line-height);
+  letter-spacing: var(--text-button-letter-spacing);
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.base:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Property 1=Default / Property 1=Hover — accent button (UI KIT #48851:732) */
+.primary {
+  padding: var(--space-16) var(--space-64);
+  background-color: var(--color-brand);
+  color: var(--color-white);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--color-brand-hover);
+}
+
+/* Property 1=Default / Property 1=Hover — outline button (UI KIT #48851:771) */
+.outline {
+  padding: var(--space-16) var(--space-32);
+  background-color: transparent;
+  color: var(--color-main);
+  border: 1px solid var(--color-gray-light);
+}
+
+.outline:hover:not(:disabled) {
+  border-color: var(--color-brand-hover);
+  color: var(--color-brand-hover);
+}

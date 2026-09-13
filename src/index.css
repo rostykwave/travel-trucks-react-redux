@@ -1,0 +1,15 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+@import './styles/variables.css';
+@import './styles/reset.css';
+@import './styles/typography.css';
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line-height);
+  color: var(--color-main);
+  background: var(--color-white);
+}

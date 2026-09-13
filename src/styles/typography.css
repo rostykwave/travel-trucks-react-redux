@@ -1,0 +1,50 @@
+/* Semantic typography classes built from the tokens in variables.css. */
+.text-h1 {
+  font-family: var(--font-family-base);
+  font-size: var(--text-h1-size);
+  font-weight: var(--text-h1-weight);
+  line-height: var(--text-h1-line-height);
+}
+
+.text-h2 {
+  font-family: var(--font-family-base);
+  font-size: var(--text-h2-size);
+  font-weight: var(--text-h2-weight);
+  line-height: var(--text-h2-line-height);
+}
+
+.text-h3 {
+  font-family: var(--font-family-base);
+  font-size: var(--text-h3-size);
+  font-weight: var(--text-h3-weight);
+  line-height: var(--text-h3-line-height);
+}
+
+.text-body {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-body-line-height);
+}
+
+.text-body-medium {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-medium-size);
+  font-weight: var(--text-body-medium-weight);
+  line-height: var(--text-body-medium-line-height);
+}
+
+.text-button {
+  font-family: var(--font-family-base);
+  font-size: var(--text-button-size);
+  font-weight: var(--text-button-weight);
+  line-height: var(--text-button-line-height);
+  letter-spacing: var(--text-button-letter-spacing);
+}
+
+.text-caption {
+  font-family: var(--font-family-base);
+  font-size: var(--text-caption-size);
+  font-weight: var(--text-caption-weight);
+  line-height: var(--text-caption-line-height);
+}

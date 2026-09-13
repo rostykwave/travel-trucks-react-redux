@@ -1,0 +1,89 @@
+/**
+ * Design tokens extracted from Figma (docs/02-design-tokens.md).
+ * Values are grouped exactly as documented there — do not add ad-hoc tokens
+ * here without a matching entry in that file.
+ */
+:root {
+  /* Colors — UI KIT "Colors" section */
+  --color-main: #101828;
+  --color-text: #475467;
+  --color-gray: #6c717b;
+  --color-gray-light: #dadde1;
+  --color-badge: #f2f4f7;
+  --color-input: #f7f7f7;
+  --color-white: #ffffff;
+  --color-brand: #829b91;
+  --color-brand-hover: #6d7b75;
+  --color-rating: #ffc531;
+
+  /* Error state — UI KIT "Name/Component 1" */
+  --color-error: #e44848;
+  --color-error-bg: #ffdfdf;
+  --color-error-label: #ec383b;
+
+  /* Overlay on the Home hero photo */
+  --color-hero-overlay: rgb(0 0 0 / 20%);
+
+  /* Typography — Inter 400/500/600 only */
+  --font-family-base: 'Inter', sans-serif;
+
+  --text-h1-size: 48px;
+  --text-h1-line-height: 32px;
+  --text-h1-weight: 600;
+
+  --text-h2-size: 24px;
+  --text-h2-line-height: 32px;
+  --text-h2-weight: 600;
+
+  --text-h3-size: 20px;
+  --text-h3-line-height: 24px;
+  --text-h3-weight: 600;
+
+  --text-body-size: 16px;
+  --text-body-line-height: 24px;
+  --text-body-weight: 400;
+
+  --text-body-medium-size: 16px;
+  --text-body-medium-line-height: 24px;
+  --text-body-medium-weight: 500;
+
+  --text-button-size: 16px;
+  --text-button-line-height: 24px;
+  --text-button-weight: 500;
+  --text-button-letter-spacing: -0.08px;
+
+  --text-caption-size: 14px;
+  --text-caption-line-height: 16.8px;
+  --text-caption-weight: 400;
+
+  /* Radii */
+  --radius-chip: 8px;
+  --radius-thumb: 10px;
+  --radius-input: 12px;
+  --radius-card: 16px;
+  --radius-panel: 20px;
+  --radius-badge: 100px;
+  --radius-pill: 200px;
+
+  /* Spacing scale — deliberately not a strict 4px grid, see docs/02-design-tokens.md §4 */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-44: 44px;
+  --space-48: 48px;
+  --space-52: 52px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-88: 88px;
+
+  /* Layout */
+  --container-max-width: 1440px;
+  --content-max-width: 1312px;
+}
