@@ -4,7 +4,7 @@ import Button from '@/components/Button/Button'
 import CamperCard from '@/components/CamperCard/CamperCard'
 import CamperCardSkeleton from '@/components/CamperCardSkeleton/CamperCardSkeleton'
 import CatalogEmptyState from '@/components/CatalogEmptyState/CatalogEmptyState'
-import CatalogErrorState from '@/components/CatalogErrorState/CatalogErrorState'
+import ErrorState from '@/components/ErrorState/ErrorState'
 import FiltersPanel from '@/components/FiltersPanel/FiltersPanel'
 import Loader from '@/components/Loader/Loader'
 import { CAMPERS_PER_PAGE } from '@/constants/campers'
@@ -59,7 +59,8 @@ function CatalogPage() {
 
     if (status === 'failed') {
       return (
-        <CatalogErrorState
+        <ErrorState
+          message="We couldn't load the campers. Check your connection and try again."
           onRetry={() => {
             void dispatch(
               fetchCampers({ ...filters, page: 1, limit: CAMPERS_PER_PAGE }),

@@ -72,3 +72,9 @@
   flex: 1;
   min-width: 0;
 }
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-88);
+}

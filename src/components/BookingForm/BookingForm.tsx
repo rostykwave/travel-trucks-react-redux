@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 import Button from '@/components/Button/Button'
 import styles from '@/components/BookingForm/BookingForm.module.css'
@@ -8,19 +9,22 @@ import {
   type BookingFormValues,
 } from '@/components/BookingForm/bookingSchema'
 
-/**
- * Two fields (name, email) match the real Form frame exactly — see ADR-009.
- * Submission is a stub: success notification and reset land in commit 33.
- */
+/** Two fields (name, email) match the real Form frame exactly — see ADR-009. */
 function BookingForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<BookingFormValues>({ resolver: zodResolver(bookingSchema) })
 
-  const onSubmit = handleSubmit(async () => {
+  const onSubmit = handleSubmit(async (values) => {
+    // No real booking endpoint exists — this simulates the request per ADR-009.
     await new Promise((resolve) => setTimeout(resolve, 500))
+    toast.success(
+      `Thanks, ${values.name}! We'll be in touch at ${values.email}.`,
+    )
+    reset()
   })
 
   return (

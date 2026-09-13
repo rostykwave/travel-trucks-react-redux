@@ -1,22 +1,60 @@
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+
 import BookingForm from '@/components/BookingForm/BookingForm'
 import CamperGallery from '@/components/CamperGallery/CamperGallery'
 import CamperReviews from '@/components/CamperReviews/CamperReviews'
+import ErrorState from '@/components/ErrorState/ErrorState'
+import Loader from '@/components/Loader/Loader'
 import Location from '@/components/Location/Location'
 import Rating from '@/components/Rating/Rating'
 import VehicleDetailsCard from '@/components/VehicleDetailsCard/VehicleDetailsCard'
-import fixture from '@/__fixtures__/camper.json'
+import { fetchCamperById } from '@/features/campers/campersSlice'
+import {
+  selectCamperDetail,
+  selectCamperDetailError,
+  selectCamperDetailStatus,
+} from '@/features/campers/selectors'
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage'
 import styles from '@/pages/CamperDetailsPage/CamperDetailsPage.module.css'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { formatPrice } from '@/utils/formatPrice'
-import type { Camper } from '@/types/camper'
 
-const camper = fixture as Camper
-
-/**
- * Gallery (commit 18), vehicle details (19), reviews (20) and the booking
- * form (22) are added by later commits — this is the page skeleton and the
- * name/price/rating/location header block only.
- */
 function CamperDetailsPage() {
+  const { id } = useParams<{ id: string }>()
+  const dispatch = useAppDispatch()
+  const camper = useAppSelector(selectCamperDetail)
+  const status = useAppSelector(selectCamperDetailStatus)
+  const error = useAppSelector(selectCamperDetailError)
+
+  useEffect(() => {
+    if (!id) return
+    const promise = dispatch(fetchCamperById(id))
+    return () => promise.abort()
+  }, [dispatch, id])
+
+  if (status === 'loading' || status === 'idle') {
+    return (
+      <div className={styles.loaderContainer}>
+        <Loader size={48} />
+      </div>
+    )
+  }
+
+  if (error?.notFound) return <NotFoundPage />
+
+  if (status === 'failed' || !camper) {
+    return (
+      <ErrorState
+        title="Couldn't load this camper"
+        message={error?.message ?? 'Something went wrong. Please try again.'}
+        onRetry={() => {
+          if (id) void dispatch(fetchCamperById(id))
+        }}
+      />
+    )
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.topSection}>
