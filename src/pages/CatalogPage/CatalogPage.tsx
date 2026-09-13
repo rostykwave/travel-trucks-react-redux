@@ -111,7 +111,7 @@ function CatalogPage() {
     <div className={styles.page}>
       <h1 className="sr-only">Camper catalog</h1>
       <FiltersPanel />
-      <div>{renderContent()}</div>
+      <div className={styles.content}>{renderContent()}</div>
     </div>
   )
 }

@@ -1,8 +1,17 @@
+/* Figma Сatalog 48681:957 — the frame reserves 52px under the last element
+ * (button ends at y1560 of a 1612 frame). */
 .page {
   display: flex;
   gap: var(--space-64);
   align-items: flex-start;
   margin-top: var(--space-48);
+  padding-bottom: var(--space-52);
+}
+
+/* Stretched to the row's cross size so a state card can match the filters panel
+ * height, the way the Figma empty frame 50734:1146 pairs them (both 840px). */
+.content {
+  align-self: stretch;
 }
 
 .list {
@@ -13,8 +22,10 @@
   gap: var(--space-32);
 }
 
+/* 40px, not the list's own 32px gap: the card column ends at y1464 and the
+ * button starts at y1504. */
 .loadMore {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-32);
+  margin-top: var(--space-40);
 }

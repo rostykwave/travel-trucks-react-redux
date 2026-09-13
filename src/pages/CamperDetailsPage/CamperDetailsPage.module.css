@@ -1,8 +1,12 @@
+/* The Details frame leaves 278px under its content, which is slack from a short
+ * example review list rather than a designed padding — the page-bottom rhythm is
+ * taken from the Catalog frame instead, where it is an exact 52px. */
 .container {
   display: flex;
   flex-direction: column;
   gap: var(--space-88);
   margin-top: var(--space-64);
+  padding-bottom: var(--space-52);
 }
 
 .topSection {

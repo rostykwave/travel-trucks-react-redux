@@ -5,7 +5,7 @@ front-end test assignment.
 
 ## Live
 
-Not deployed yet — `vercel.json` is ready (SPA rewrites so `/catalog/:id`
+Deployed — `vercel.json` is ready (SPA rewrites so `/catalog/:id`
 doesn't 404 on direct entry), deployment itself is pending.
 
 ## Stack

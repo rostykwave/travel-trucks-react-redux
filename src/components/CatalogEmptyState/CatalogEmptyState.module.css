@@ -2,10 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* Figma Card 1 50734:1149 draws the illustration flush with the card's top
+   * edge and leaves the slack at the bottom, so the block is top-aligned. */
+  justify-content: flex-start;
   gap: var(--space-16);
   width: var(--layout-state-card-width);
-  height: var(--layout-state-card-height);
+  /* Follows the filters panel: the mockup draws both columns the same height,
+   * and the panel is taller than its Figma original because of the equipment
+   * checkboxes. 840px is the mockup's value, kept as the floor. */
+  height: 100%;
+  min-height: var(--layout-state-card-height);
   padding-inline: var(--space-64);
   text-align: center;
   background-color: var(--color-input);
