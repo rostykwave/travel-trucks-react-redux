@@ -89,3 +89,8 @@
   /* Documented block sizes from docs/02-design-tokens.md §5 — not arbitrary. */
   --layout-hero-height: 864px;
 }
+
+/* Catalog page grid — docs/02-design-tokens.md §5 */
+:root {
+  --layout-filters-width: 360px;
+}

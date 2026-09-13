@@ -1,4 +1,9 @@
-import type { CamperForm } from '@/types/camper'
+import type {
+  CamperEngine,
+  CamperForm,
+  CamperTransmission,
+  EquipmentKey,
+} from '@/types/camper'
 
 /**
  * Cards per request. The catalog column in the mockup is 1344px tall and holds
@@ -19,3 +24,28 @@ export const CAMPER_FORMS: CamperForm[] = [
   'fullyIntegrated',
   'alcove',
 ]
+
+/** The API sends lowercase values; the mockup displays them capitalized. */
+export const ENGINE_LABELS: Record<CamperEngine, string> = {
+  petrol: 'Petrol',
+  diesel: 'Diesel',
+  hybrid: 'Hybrid',
+}
+
+export const TRANSMISSION_LABELS: Record<CamperTransmission, string> = {
+  automatic: 'Automatic',
+  manual: 'Manual',
+}
+
+/** Display labels for the equipment filter checkboxes and detail badges. */
+export const EQUIPMENT_LABELS: Record<EquipmentKey, string> = {
+  AC: 'AC',
+  bathroom: 'Bathroom',
+  kitchen: 'Kitchen',
+  TV: 'TV',
+  radio: 'Radio',
+  refrigerator: 'Refrigerator',
+  microwave: 'Microwave',
+  gas: 'Gas',
+  water: 'Water',
+}

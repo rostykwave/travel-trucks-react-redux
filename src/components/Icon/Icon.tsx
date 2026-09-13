@@ -1,5 +1,10 @@
 export type IconName =
-  'fuel-petrol' | 'transmission-automatic' | 'form-alcove' | 'star' | 'map-pin'
+  | 'fuel-petrol'
+  | 'transmission-automatic'
+  | 'form-alcove'
+  | 'star'
+  | 'map-pin'
+  | 'close'
 
 export interface IconProps {
   name: IconName
