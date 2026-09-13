@@ -1,6 +1,7 @@
 .panel {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   gap: var(--space-48);
   width: var(--layout-filters-width);
   padding: var(--space-24);
@@ -30,18 +31,26 @@
   gap: var(--space-8);
   padding: var(--space-18) var(--space-20);
   background-color: var(--color-white);
-  border: none;
   border-radius: var(--radius-input);
   color: var(--color-main);
 }
 
-.locationInput::placeholder {
-  color: var(--color-gray);
-}
-
-.locationInput:focus-visible {
+/* The ring goes on the wrapper (icon + field), not the input itself, since
+ * that's the whole visual "pill" the user perceives as one control. */
+.locationInput:focus-within {
   outline: 2px solid var(--color-brand);
   outline-offset: 2px;
+}
+
+.locationField {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.locationField::placeholder {
+  color: var(--color-gray);
 }
 
 .groups {
@@ -105,33 +114,39 @@
   border-radius: 50%;
 }
 
-.radio:focus-visible {
+.radio:focus-visible,
+.checkbox:focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 2px;
 }
 
-/* Custom checkbox — same rationale as .radio: no mockup reference. */
+/* Same control as .radio with square corners and a check mark — the equipment
+ * multi-select has no Figma reference either (see ADR-008). */
 .checkbox {
+  position: relative;
   width: var(--space-20);
   height: var(--space-20);
   flex-shrink: 0;
   appearance: none;
-  background-color: var(--color-white);
   border: 1.5px solid var(--color-gray-light);
-  border-radius: var(--radius-chip);
+  border-radius: var(--space-4);
 }
 
 .checkbox:checked {
-  background-color: var(--color-brand);
-  border-color: var(--color-brand);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 10.5L8.5 14L15 6.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: var(--color-text);
+  border-color: var(--color-text);
 }
 
-.checkbox:focus-visible {
-  outline: 2px solid var(--color-brand);
-  outline-offset: 2px;
+.checkbox:checked::after {
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 5px;
+  height: 10px;
+  content: '';
+  border: solid var(--color-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .buttons {
@@ -142,4 +157,5 @@
 
 .clearButton {
   gap: var(--space-4);
+  background-color: var(--color-white);
 }

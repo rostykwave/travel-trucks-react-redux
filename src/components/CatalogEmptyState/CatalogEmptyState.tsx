@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import illustration from '@/assets/empty-illustration.png'
 import Button from '@/components/Button/Button'
 import buttonStyles from '@/components/Button/Button.module.css'
 import Icon from '@/components/Icon/Icon'
@@ -9,16 +10,20 @@ export interface CatalogEmptyStateProps {
   onClearFilters?: () => void
 }
 
-/** Shown when the current filters match nothing (a 404 per docs/01-api-contract.md §4.1).
- * The mockup's decorative illustration is skipped — heading and actions carry the meaning. */
+/** Shown when the current filters match nothing (a 404 per docs/01-api-contract.md §4.1). */
 function CatalogEmptyState({ onClearFilters }: CatalogEmptyStateProps) {
   return (
     <div className={styles.state}>
+      <img src={illustration} alt="" className={styles.illustration} />
       <h2 className="text-h2">No campers found</h2>
-      <p className={`text-body-medium ${styles.subtitle}`}>
-        We couldn&apos;t find any campers that match your filters. Try adjusting
-        your search or clearing some filters.
-      </p>
+      <div className={styles.subtitle}>
+        <p className="text-body-medium">
+          We couldn&apos;t find any campers that match your filters.
+        </p>
+        <p className="text-body-medium">
+          Try adjusting your search or clearing some filters.
+        </p>
+      </div>
       <div className={styles.buttons}>
         <Button
           type="button"

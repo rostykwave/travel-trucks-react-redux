@@ -2,6 +2,7 @@
   display: flex;
   gap: var(--space-64);
   align-items: flex-start;
+  margin-top: var(--space-48);
 }
 
 .list {

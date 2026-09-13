@@ -1,0 +1,33 @@
+/* Figma's loading frame (50734-581) covers the whole page below the header with
+ * a translucent sheet and centers the white card on top of it. */
+.wrapper {
+  position: fixed;
+  z-index: 10;
+  top: var(--layout-header-height);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-overlay);
+}
+
+.modal {
+  display: flex;
+  width: var(--layout-loading-modal-width);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-32);
+  padding: var(--space-48) var(--space-96);
+  background-color: var(--color-white);
+  border-radius: var(--radius-card);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+  text-align: center;
+}

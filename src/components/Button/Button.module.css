@@ -1,5 +1,8 @@
+/* Height is fixed rather than derived from padding + line-height: the mockup's
+ * text layer hugs the glyphs (21px), so padding alone would render 56px. */
 .base {
   display: inline-flex;
+  height: var(--layout-button-height);
   align-items: center;
   justify-content: center;
   gap: var(--space-10);
@@ -21,9 +24,14 @@
   opacity: 0.5;
 }
 
+.base:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
 /* Property 1=Default / Property 1=Hover — accent button (UI KIT #48851:732) */
 .primary {
-  padding: var(--space-16) var(--space-64);
+  padding-inline: var(--space-60);
   background-color: var(--color-brand);
   color: var(--color-white);
 }
@@ -32,9 +40,14 @@
   background-color: var(--color-brand-hover);
 }
 
+/* Fixed-width call to action — "View Now" and "Show more" (Figma 48851:743). */
+.cta {
+  width: var(--layout-cta-width);
+}
+
 /* Property 1=Default / Property 1=Hover — outline button (UI KIT #48851:771) */
 .outline {
-  padding: var(--space-16) var(--space-32);
+  padding-inline: var(--space-32);
   background-color: transparent;
   color: var(--color-main);
   border: 1px solid var(--color-gray-light);

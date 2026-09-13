@@ -4,10 +4,9 @@ import { useParams } from 'react-router-dom'
 import BookingForm from '@/components/BookingForm/BookingForm'
 import CamperGallery from '@/components/CamperGallery/CamperGallery'
 import CamperReviews from '@/components/CamperReviews/CamperReviews'
+import CamperSummary from '@/components/CamperSummary/CamperSummary'
 import ErrorState from '@/components/ErrorState/ErrorState'
 import Loader from '@/components/Loader/Loader'
-import Location from '@/components/Location/Location'
-import Rating from '@/components/Rating/Rating'
 import VehicleDetailsCard from '@/components/VehicleDetailsCard/VehicleDetailsCard'
 import { fetchCamperById } from '@/features/campers/campersSlice'
 import {
@@ -18,7 +17,6 @@ import {
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage'
 import styles from '@/pages/CamperDetailsPage/CamperDetailsPage.module.css'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { formatPrice } from '@/utils/formatPrice'
 
 function CamperDetailsPage() {
   const { id } = useParams<{ id: string }>()
@@ -61,21 +59,7 @@ function CamperDetailsPage() {
         <CamperGallery images={camper.gallery} alt={camper.name} />
         <div className={styles.infoContainer}>
           <div className={styles.headerCard}>
-            <div className={styles.title}>
-              <div className={styles.titleRow}>
-                <h1 className={`text-h2 ${styles.name}`}>{camper.name}</h1>
-                <p className={`text-h2 ${styles.price}`}>
-                  {formatPrice(camper.price)}
-                </p>
-              </div>
-              <div className={styles.details}>
-                <Rating
-                  rating={camper.rating}
-                  reviewsCount={camper.reviews.length}
-                />
-                <Location location={camper.location} />
-              </div>
-            </div>
+            <CamperSummary camper={camper} titleAs="h1" stackedPrice />
             <p className={`text-body ${styles.description}`}>
               {camper.description}
             </p>

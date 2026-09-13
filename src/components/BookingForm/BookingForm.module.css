@@ -33,8 +33,11 @@
   gap: var(--space-8);
 }
 
+/* 527x60 with an 18px inset — Figma 48851:788. Height is set rather than derived
+ * so the 1px border doesn't push the field to 62px. */
 .input {
-  padding: var(--space-18) var(--space-20);
+  height: var(--layout-form-field-height);
+  padding-inline: var(--space-18);
   background-color: var(--color-input);
   border: 1px solid transparent;
   border-radius: var(--radius-input);
@@ -57,4 +60,10 @@
 
 .errorMessage {
   color: var(--color-error);
+}
+
+/* Figma 48851:758 — the Send button fills the form's 527px column, which is
+ * narrower than the form's own content box. */
+.submit {
+  width: var(--layout-form-field-width);
 }

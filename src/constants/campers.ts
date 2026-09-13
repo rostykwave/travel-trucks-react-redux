@@ -18,7 +18,7 @@ export const FORM_LABELS: Record<CamperForm, string> = {
   alcove: 'Alcove',
 }
 
-/** Filter order follows the mockup, not the API. */
+/** Badge order on the camper card. */
 export const CAMPER_FORMS: CamperForm[] = [
   'panelTruck',
   'fullyIntegrated',
@@ -49,3 +49,31 @@ export const EQUIPMENT_LABELS: Record<EquipmentKey, string> = {
   gas: 'Gas',
   water: 'Water',
 }
+
+export interface FilterOption {
+  value: string
+  label: string
+}
+
+/**
+ * Filters panel option lists — labels and order from the Figma filters panel
+ * (Catalog frame), minus its "Semi Integrated" and "Electric" entries: neither
+ * exists in the live API, so they could only ever render an empty catalog.
+ * See the revised ADR-008.
+ */
+export const CAMPER_FORM_FILTER_OPTIONS: FilterOption[] = [
+  { value: 'alcove', label: 'Alcove' },
+  { value: 'panelTruck', label: 'Panel Van' },
+  { value: 'fullyIntegrated', label: 'Integrated' },
+]
+
+export const ENGINE_FILTER_OPTIONS: FilterOption[] = [
+  { value: 'diesel', label: 'Diesel' },
+  { value: 'petrol', label: 'Petrol' },
+  { value: 'hybrid', label: 'Hybrid' },
+]
+
+export const TRANSMISSION_FILTER_OPTIONS: FilterOption[] = [
+  { value: 'automatic', label: 'Automatic' },
+  { value: 'manual', label: 'Manual' },
+]

@@ -24,6 +24,10 @@
   /* Overlay on the Home hero photo */
   --color-hero-overlay: rgb(0 0 0 / 20%);
 
+  /* Translucent sheet behind the catalog loading popup — Figma 50734:827.
+   * A light wash, not a dim: the mockup lightens the page rather than darkening it. */
+  --color-overlay: rgb(223 223 223 / 44%);
+
   /* Typography — Inter 400/500/600 only */
   --font-family-base: 'Inter', sans-serif;
 
@@ -80,17 +84,27 @@
   --space-44: 44px;
   --space-48: 48px;
   --space-52: 52px;
+  --space-60: 60px;
   --space-64: 64px;
   --space-80: 80px;
   --space-88: 88px;
+  --space-96: 96px;
 
   /* Layout */
   --container-max-width: 1440px;
 
   /* Documented block sizes from docs/02-design-tokens.md §5 — not arbitrary. */
   --layout-hero-height: 864px;
+  /* Title block starts at a fixed offset from the top of the page, not vertically
+   * centered — see docs/02-design-tokens.md §5 (Home — hero). The hero slides
+   * under the 72px header, so this offset spans that band too. */
+  --layout-hero-title-offset: 265px;
 
   /* Repeated element sizes straight from Figma — see docs/02-design-tokens.md §5. */
+  /* Header block height: 24px padding + 24px line-height + 24px padding, plus
+   * the 1px bottom border. The loading overlay starts right below it (Figma
+   * 50734:827 sits at y=72, i.e. flush under the 72px content band). */
+  --layout-header-height: 73px;
   --layout-logo-width: 136px;
   --layout-logo-height: 16px;
   --layout-card-image-width: 219px;
@@ -100,6 +114,28 @@
   --layout-gallery-thumb-height: 144px;
   --layout-form-width: 641px;
   --layout-form-field-width: 527px;
+  --layout-form-field-height: 60px;
+
+  /* Header uses a fixed gap between logo and nav, not space-between — this
+   * pulls the nav toward the center rather than flush right. */
+  --layout-header-nav-gap: 450px;
+
+  /* Buttons — Figma 48851:731/48851:743. Height is 16px padding + a 21px text
+   * layer + 16px padding, i.e. 53px, not the 56px a 24px line-height would give.
+   * 173px is the fixed width of the "View Now" / "Show more" call to action. */
+  --layout-button-height: 53px;
+  --layout-cta-width: 173px;
+
+  /* Catalog loading popup — Figma 50734:833. */
+  --layout-loading-modal-width: 543px;
+
+  /* Empty-state illustration — shipped at 2x (976x926) for retina. */
+  --layout-empty-illustration-width: 488px;
+  --layout-empty-illustration-height: 463px;
+
+  /* Empty/error state card in the catalog list column — docs/02 §5. */
+  --layout-state-card-width: 888px;
+  --layout-state-card-height: 840px;
 }
 
 /* Catalog page grid — docs/02-design-tokens.md §5 */

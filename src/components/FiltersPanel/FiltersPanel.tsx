@@ -4,18 +4,33 @@ import Button from '@/components/Button/Button'
 import Icon from '@/components/Icon/Icon'
 import styles from '@/components/FiltersPanel/FiltersPanel.module.css'
 import {
-  CAMPER_FORMS,
+  CAMPER_FORM_FILTER_OPTIONS,
+  ENGINE_FILTER_OPTIONS,
   EQUIPMENT_LABELS,
-  FORM_LABELS,
+  TRANSMISSION_FILTER_OPTIONS,
 } from '@/constants/campers'
-import { isCamperForm } from '@/features/filters/urlFilters'
+import type { FilterOption } from '@/constants/campers'
 import type { CampersFilters } from '@/features/filters/urlFilters'
 import { useCampersFilters } from '@/features/filters/useCampersFilters'
 import { EQUIPMENT_KEYS } from '@/types/camper'
+import type { EquipmentKey } from '@/types/camper'
+
+const EQUIPMENT_OPTIONS: FilterOption[] = EQUIPMENT_KEYS.map((key) => ({
+  value: key,
+  label: EQUIPMENT_LABELS[key],
+}))
+
+function isEquipmentKey(value: string): value is EquipmentKey {
+  return (EQUIPMENT_KEYS as readonly string[]).includes(value)
+}
 
 /**
- * Field set follows the assignment (location text, single body type, multiple
- * equipment), not the mockup's Engine/Transmission radios — see ADR-008.
+ * Camper form / Engine / Transmission follow the Figma filters panel (labels and
+ * order). Vehicle equipment is a multi-select the mockup has no reference for at
+ * all — it exists because the assignment requires filtering by AC, kitchen "and
+ * other criteria, several at a time". Its checkboxes reuse the radio styling
+ * with a square instead of a circle. See ADR-008.
+ *
  * The form is uncontrolled, keyed on the current filters so it remounts (and
  * re-syncs its defaultValue/defaultChecked) whenever the URL changes from
  * outside — e.g. Clear filters, or a filtered link pasted directly.
@@ -34,14 +49,52 @@ function FiltersPanel() {
     }
 
     const form = data.get('form')
-    if (typeof form === 'string' && isCamperForm(form)) next.form = form
+    if (typeof form === 'string' && form) next.form = form
 
-    for (const key of EQUIPMENT_KEYS) {
-      if (data.get(key) === 'on') next[key] = true
+    const engine = data.get('engine')
+    if (typeof engine === 'string' && engine) next.engine = engine
+
+    const transmission = data.get('transmission')
+    if (typeof transmission === 'string' && transmission) {
+      next.transmission = transmission
     }
+
+    const equipment = data
+      .getAll('equipment')
+      .filter((value): value is string => typeof value === 'string')
+      .filter(isEquipmentKey)
+    if (equipment.length > 0) next.equipment = equipment
 
     setFilters(next)
   }
+
+  const renderGroup = (
+    legend: string,
+    name: string,
+    type: 'radio' | 'checkbox',
+    options: FilterOption[],
+    isSelected: (value: string) => boolean,
+  ) => (
+    <fieldset className={styles.group}>
+      <legend className={`text-body ${styles.groupLegend}`}>{legend}</legend>
+      <div className={styles.groupOptions}>
+        {options.map((option) => (
+          <label key={option.value} className={`text-body ${styles.option}`}>
+            <input
+              type={type}
+              name={name}
+              value={option.value}
+              defaultChecked={isSelected(option.value)}
+              className={type === 'radio' ? styles.radio : styles.checkbox}
+            />
+            {option.label}
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  )
+
+  const selectedEquipment = new Set<string>(filters.equipment ?? [])
 
   return (
     <form
@@ -62,13 +115,7 @@ function FiltersPanel() {
               type="text"
               placeholder="Kyiv, Ukraine"
               defaultValue={filters.location ?? ''}
-              className="text-body"
-              style={{
-                width: '100%',
-                border: 'none',
-                background: 'transparent',
-                outline: 'none',
-              }}
+              className={`text-body ${styles.locationField}`}
             />
           </div>
         </div>
@@ -76,44 +123,34 @@ function FiltersPanel() {
         <div className={styles.groups}>
           <h3 className="text-h3">Filters</h3>
 
-          <fieldset className={styles.group}>
-            <legend className={`text-body ${styles.groupLegend}`}>
-              Vehicle type
-            </legend>
-            <div className={styles.groupOptions}>
-              {CAMPER_FORMS.map((form) => (
-                <label key={form} className={`text-body ${styles.option}`}>
-                  <input
-                    type="radio"
-                    name="form"
-                    value={form}
-                    defaultChecked={filters.form === form}
-                    className={styles.radio}
-                  />
-                  {FORM_LABELS[form]}
-                </label>
-              ))}
-            </div>
-          </fieldset>
-
-          <fieldset className={styles.group}>
-            <legend className={`text-body ${styles.groupLegend}`}>
-              Equipment
-            </legend>
-            <div className={styles.groupOptions}>
-              {EQUIPMENT_KEYS.map((key) => (
-                <label key={key} className={`text-body ${styles.option}`}>
-                  <input
-                    type="checkbox"
-                    name={key}
-                    defaultChecked={Boolean(filters[key])}
-                    className={styles.checkbox}
-                  />
-                  {EQUIPMENT_LABELS[key]}
-                </label>
-              ))}
-            </div>
-          </fieldset>
+          {renderGroup(
+            'Vehicle equipment',
+            'equipment',
+            'checkbox',
+            EQUIPMENT_OPTIONS,
+            (value) => selectedEquipment.has(value),
+          )}
+          {renderGroup(
+            'Camper form',
+            'form',
+            'radio',
+            CAMPER_FORM_FILTER_OPTIONS,
+            (value) => filters.form === value,
+          )}
+          {renderGroup(
+            'Engine',
+            'engine',
+            'radio',
+            ENGINE_FILTER_OPTIONS,
+            (value) => filters.engine === value,
+          )}
+          {renderGroup(
+            'Transmission',
+            'transmission',
+            'radio',
+            TRANSMISSION_FILTER_OPTIONS,
+            (value) => filters.transmission === value,
+          )}
         </div>
       </div>
 

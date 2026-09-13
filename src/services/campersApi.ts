@@ -1,23 +1,18 @@
 import { api } from '@/services/api'
 import { ApiError, CamperNotFoundError } from '@/services/errors'
-import type {
-  Camper,
-  CamperEngine,
-  CamperForm,
-  CamperTransmission,
-  CampersResponse,
-  EquipmentKey,
-} from '@/types/camper'
-import { EQUIPMENT_KEYS } from '@/types/camper'
+import type { Camper, CampersResponse, EquipmentKey } from '@/types/camper'
+import { toApiLocation } from '@/utils/formatLocation'
 
-export type CampersQuery = {
+export interface CampersQuery {
   page?: number
   limit?: number
   location?: string
-  form?: CamperForm
-  transmission?: CamperTransmission
-  engine?: CamperEngine
-} & Partial<Record<EquipmentKey, boolean>>
+  form?: string
+  transmission?: string
+  engine?: string
+  /** Expanded into one `<key>=true` param each — MockAPI has no array syntax. */
+  equipment?: EquipmentKey[]
+}
 
 export interface RequestOptions {
   signal?: AbortSignal
@@ -33,8 +28,10 @@ function isNotFound(error: unknown): boolean {
 
 function hasFilters(query: CampersQuery): boolean {
   const { page: _page, limit: _limit, ...filters } = query
-  return Object.values(filters).some(
-    (value) => value !== undefined && value !== '',
+  return Object.values(filters).some((value) =>
+    Array.isArray(value)
+      ? value.length > 0
+      : value !== undefined && value !== '',
   )
 }
 
@@ -61,14 +58,12 @@ function toParams(query: CampersQuery): QueryParams {
       ? Math.max(1, Math.trunc(query.limit))
       : undefined,
   )
-  put('location', query.location?.trim())
+  put('location', query.location ? toApiLocation(query.location) : undefined)
   put('form', query.form)
   put('transmission', query.transmission)
   put('engine', query.engine)
 
-  for (const key of EQUIPMENT_KEYS) {
-    if (query[key]) params[key] = 'true'
-  }
+  for (const key of query.equipment ?? []) params[key] = 'true'
 
   return params
 }

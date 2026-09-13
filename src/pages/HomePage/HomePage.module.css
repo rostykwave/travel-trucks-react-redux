@@ -1,9 +1,13 @@
+/* The photo runs up underneath the header: in Figma (48743:440) it starts above
+ * the frame's own origin, so the 864px image is cropped by the 72px header band
+ * instead of being pushed below it. */
 .hero {
   position: relative;
+  width: 100vw;
   height: var(--layout-hero-height);
+  margin-top: calc(-1 * var(--layout-header-height));
+  margin-left: calc(50% - 50vw);
   overflow: hidden;
-  display: flex;
-  align-items: center;
 }
 
 .image {
@@ -20,6 +24,13 @@
   background-color: var(--color-hero-overlay);
 }
 
+.heroInner {
+  position: relative;
+  max-width: var(--container-max-width);
+  height: 100%;
+  margin-inline: auto;
+}
+
 .title {
   position: relative;
   display: flex;
@@ -27,6 +38,9 @@
   align-items: flex-start;
   gap: var(--space-40);
   padding-inline: var(--space-64);
+  /* Measured from the top of the page, so it absorbs the header band the hero
+   * now slides under. */
+  padding-top: var(--layout-hero-title-offset);
 }
 
 .text {

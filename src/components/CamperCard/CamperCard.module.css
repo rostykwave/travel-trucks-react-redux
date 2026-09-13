@@ -22,48 +22,42 @@
   min-width: 0;
 }
 
-.textContainer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-24);
-}
-
-.name {
-  overflow: hidden;
-  min-width: 0;
-  color: var(--color-main);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.price {
-  flex-shrink: 0;
-  color: var(--color-main);
-}
-
-.details {
-  display: flex;
-  align-items: center;
-  gap: var(--space-16);
-}
-
 .description {
   display: -webkit-box;
   overflow: hidden;
   color: var(--color-text);
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
 }
 
 .badges {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-8);
+}
+
+/* Favorites are an assignment requirement with no mockup reference (ADR-010):
+ * neutral outline heart, brand-red fill once active. */
+.favorite {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-main);
+  cursor: pointer;
+}
+
+.favorite:hover {
+  color: var(--color-brand-hover);
+}
+
+.favorite:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: var(--space-4);
+}
+
+.favoriteActive,
+.favoriteActive:hover {
+  color: var(--color-error);
 }
